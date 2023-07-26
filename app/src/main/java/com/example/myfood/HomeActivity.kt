@@ -18,21 +18,24 @@ class HomeActivity : AppCompatActivity() {
         val binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+        bottomNav = binding.bottomNavigation
         val homeFragment = HomeFragment()
         val shopFragment = ShopFragment()
         val profileFragment = ProfileFragment()
+        setCurrentFragment(homeFragment)
 
         binding.bottomNavigation.setOnNavigationItemSelectedListener {
             when(it.itemId){
-                R.id.navHome -> makeCurrentFragment(homeFragment)
-                R.id.navShoppingCart -> makeCurrentFragment(shopFragment)
-                R.id.navProfile -> makeCurrentFragment(profileFragment)
+                R.id.navHome -> setCurrentFragment(homeFragment)
+                R.id.navShoppingCart -> setCurrentFragment(shopFragment)
+                R.id.navProfile -> setCurrentFragment(profileFragment)
             }
             true
         }
     }
 
-    private fun makeCurrentFragment(fragment: Fragment) {
+    private fun setCurrentFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.frameNavigation, fragment)
             commit()
