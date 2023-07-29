@@ -12,4 +12,6 @@
     <string name="august_october">August - October</string>
     <string name="order_now">Order Now</string>
     <string name="main_continue">Continue</string>
+    <string name="categories">Categories</string>
+    <string name="popular">Popular</string>
 </resources>
